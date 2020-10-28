@@ -2,6 +2,8 @@ import torch
 import torch.nn as nn
 from torchvision import datasets, transforms
 import torch.optim as optim
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import trange
