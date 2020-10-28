@@ -7,6 +7,7 @@ import numpy as np
 from tqdm import trange
 import cnn
 
+
 ### Define constants
 data_dir = '../data/images_original'
 net_dir = './baseline_net.pth'
@@ -18,7 +19,6 @@ train_size = 800
 test_size = 199
 lr = 0.001
 momentum = 0.9
-
 transform = transforms.Compose([
   transforms.ToTensor(),
   transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
@@ -69,16 +69,15 @@ for e in trange(num_epoch):
     _, predicted = torch.max(outputs.data, 1)
     total += labels.size(0)
     correct += (predicted == labels).sum().item()
-
   # Get average training loss and accuracy for this epoch
   loss_per_epoch_train.append(running_loss / iters)
   accuracy_per_epoch_train.append(100 * correct / total)
 
+  # Get test loss and accuracy for this epoch
   running_loss = 0.0
   correct = 0
   iters = 0
   total = 0
-  # Get test loss and accuracy for this epoch
   with torch.no_grad():
     for data in testloader:
       iters += 1

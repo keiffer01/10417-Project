@@ -16,6 +16,7 @@ class CNN(nn.Module):
     self.fc = nn.Linear(4 * 103 * 67, 10)
     self.sigmoid = nn.Sigmoid()
 
+
   def forward(self, x):
     x = self.pool1(self.relu1(self.conv1(x)))
     x = self.pool2(self.relu2(self.conv2(x)))
