@@ -1,5 +1,6 @@
 import torch.nn as nn
 
+convoluted_image_area = 12 * 49
 
 class CNN(nn.Module):
   '''
@@ -13,13 +14,13 @@ class CNN(nn.Module):
     self.conv2 = nn.Conv2d(4, 4, 7)
     self.pool2 = nn.MaxPool2d(2, 2)
     self.relu2 = nn.ReLU()
-    self.fc = nn.Linear(4 * 103 * 67, 10)
+    self.fc = nn.Linear(4 * convoluted_image_area, 10)
     self.sigmoid = nn.Sigmoid()
 
 
   def forward(self, x):
     x = self.pool1(self.relu1(self.conv1(x)))
     x = self.pool2(self.relu2(self.conv2(x)))
-    x = x.view(-1, 4 * 103 * 67)
+    x = x.view(-1, 4 * convoluted_image_area)
     x = self.sigmoid(self.fc(x))
     return x
