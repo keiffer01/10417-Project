@@ -12,14 +12,14 @@ import cnn
 
 
 ### Define constants
-data_dir = '../data/images_original'
+data_dir = '../data/images_segmented'
 net_dir = './baseline_net.pth'
 saved_loss_and_accuracy_dir = './saved_loss_and_accuracy.npz'
 num_epoch = 200
 batch_size = 32
-num_points = 999
-train_size = 800
-test_size = 199
+num_points = 4995
+train_size = 4000
+test_size = 995
 lr = 0.001
 momentum = 0.9
 transform = transforms.Compose([
