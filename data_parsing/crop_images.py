@@ -4,6 +4,7 @@ import glob
 from PIL import Image
 
 # Cropped image size that removes the white border, determined by hand
+# (left, top, right, bottom)
 newSize = (54, 35, 389, 252)
 
 images_path = "../data/images_original"
