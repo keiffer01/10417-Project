@@ -12,16 +12,18 @@ import cnnrnn
 
 
 ### Define constants
-data_dir = '../data/images_segmented'
-net_dir = './cnnrnn_net.pth'
-saved_loss_and_accuracy_dir = './saved_loss_and_accuracy.npz'
-num_epoch = 200
+num_epoch = 800
 batch_size = 32
 num_points = 4995
 train_size = 4000
 test_size = 995
 lr = 0.001
 momentum = 0.9
+data_dir = '../data/images_segmented'
+net_dir = './cnnrnn_net.pth'
+loss_figure_dir = './figures/loss-' + str(num_epoch) + '-epochs.png'
+accuracy_figure_dir = './figures/accuracy-' + str(num_epoch) + '-epochs.png'
+saved_loss_and_accuracy_dir = './saved_loss_and_accuracy.npz'
 transform = transforms.Compose([
   transforms.ToTensor(),
   transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
@@ -114,7 +116,7 @@ plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
 plt.xlabel("Epoch")
 plt.ylabel("Loss")
 plt.title("Train/Test Loss")
-plt.savefig("./figures/loss.png", bbox_inches="tight")
+plt.savefig(loss_figure_dir, bbox_inches="tight")
 plt.close()
 
 # Plot train/test accuracy
@@ -124,5 +126,5 @@ plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
 plt.xlabel("Epoch")
 plt.ylabel("Accuracy")
 plt.title("Train/Test Accuracy")
-plt.savefig("./figures/accuracy.png", bbox_inches="tight")
+plt.savefig(accuracy_figure_dir, bbox_inches="tight")
 plt.close()
