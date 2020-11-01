@@ -37,7 +37,7 @@ trainloader = torch.utils.data.DataLoader(trainset,
                                           num_workers=4)
 testloader = torch.utils.data.DataLoader(testset,
                                          batch_size=test_size,
-                                         shuffle=True,
+                                         shuffle=False,
                                          num_workers=4)
 classes = ('blues', 'classical', 'country', 'disco',
            'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock')
