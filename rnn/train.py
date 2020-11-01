@@ -13,7 +13,7 @@ import cnnrnn
 
 ### Define constants
 data_dir = '../data/images_segmented'
-net_dir = './baseline_net.pth'
+net_dir = './cnnrnn_net.pth'
 saved_loss_and_accuracy_dir = './saved_loss_and_accuracy.npz'
 num_epoch = 200
 batch_size = 32
