@@ -14,9 +14,9 @@ import cnnrnn
 ### Define constants
 num_epoch = 800
 batch_size = 32
-num_points = 4995
-train_size = 4000
-test_size = 995
+num_points = 10000
+train_size = 8000
+test_size = 2000
 lr = 0.001
 momentum = 0.9
 data_dir = '../data/images_segmented'

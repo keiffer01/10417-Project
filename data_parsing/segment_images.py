@@ -3,11 +3,11 @@
 import glob
 from PIL import Image
 
-# The length of the cropped image was predetermined to be divisible by 5.
-num_segments = 5
+# Number of segments for each image.
+num_segments = 10
 
-# Get the cropped images path.
-images_path = "../data/images_cropped"
+# Get the images path.
+images_path = "../data/images_original"
 genre_paths = glob.glob(images_path + "/*")
 
 # Get the path that the segmented images will be placed.
@@ -34,5 +34,5 @@ for (genre_path, new_genre_path) in zipped_genre_paths:
       segment = image.crop(new_size)
 
       # Save the segment
-      new_filepath = new_genre_path + "/" + filename + "(" + str(num_segment+1) + ")" + ".png"
+      new_filepath = new_genre_path + "/" + filename + "." + str(num_segment) + "." + ".png"
       segment.save(new_filepath)
