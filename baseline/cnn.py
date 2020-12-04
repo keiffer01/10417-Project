@@ -1,6 +1,6 @@
 import torch.nn as nn
 
-convoluted_image_area = 12 * 49
+convoluted_image_area = 3 * 49
 
 class CNN(nn.Module):
   '''
