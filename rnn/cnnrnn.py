@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-convoluted_image_area = 12 * 49
+convoluted_image_area = 3 * 49
 hidden_dim = 100
 layer_dim = 1
 
@@ -17,7 +17,7 @@ class CNNRNN(nn.Module):
     self.conv2 = nn.Conv2d(4, 4, 7)
     self.pool2 = nn.MaxPool2d(2, 2)
     self.relu2 = nn.ReLU()
-    self.lstm = nn.LSTM(2352, hidden_dim, layer_dim, batch_first=True)
+    self.lstm = nn.LSTM(4*3*49, hidden_dim, layer_dim, batch_first=True)
     self.fc = nn.Linear(hidden_dim, 10)
     self.sigmoid = nn.Sigmoid()
 

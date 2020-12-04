@@ -34,5 +34,5 @@ for (genre_path, new_genre_path) in zipped_genre_paths:
       segment = image.crop(new_size)
 
       # Save the segment
-      new_filepath = new_genre_path + "/" + filename + "." + str(num_segment) + "." + ".png"
+      new_filepath = new_genre_path + "/" + filename + "." + str(num_segment) + ".png"
       segment.save(new_filepath)
