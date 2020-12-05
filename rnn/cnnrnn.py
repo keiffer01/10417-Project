@@ -26,5 +26,7 @@ class CNNRNN(nn.Module):
     x = self.pool2(self.relu2(self.conv2(x)))
     x = x.view(x.size(0), 1, -1)
     x, (hn, cn) = self.lstm(x)
+    print(x.size())
+    print(x[:,-1,:].size())
     x = self.sigmoid(self.fc(x[:, -1, :]))
     return x
