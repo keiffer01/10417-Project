@@ -7,7 +7,7 @@ layer_dim = 1
 
 class CNNRNN(nn.Module):
   '''
-  Baseline CNN neural network.
+  Modified neural network from baseline with LSTM layer.
   '''
   def __init__(self):
     super(CNNRNN, self).__init__()
