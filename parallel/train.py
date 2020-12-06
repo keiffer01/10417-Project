@@ -12,11 +12,11 @@ import parallel
 
 
 ### Define constants
-num_epoch = 800
+num_epoch = 400
 batch_size = 32
-num_points = 10000
+num_points = 9990
 train_size = 8000
-test_size = 2000
+test_size = 1990
 lr = 0.001
 momentum = 0.9
 data_dir = '../data/images_segmented'
