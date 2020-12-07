@@ -3,3 +3,4 @@ data/
 baseline/__pycache__/
 rnn/__pycache__/
 parallel/__pycache__/
+parallel-v2/__pycache__/
