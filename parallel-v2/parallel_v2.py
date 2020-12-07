@@ -8,7 +8,9 @@ linear_dim = 1472
 
 class ParallelV2(nn.Module):
   '''
-  Modified neural network from baseline with CNN and LSTM trained in parallel.
+  Modified neural network from baseline with CNN and LSTM in parallel training
+  on image, with a third linear layer also trained in parallel on the
+  corresponding music features.
   '''
   def __init__(self):
     super(ParallelV2, self).__init__()
