@@ -13,7 +13,7 @@ from imagecsvdataset import ImageCsvDataset
 
 
 ### Define constants
-num_epoch = 800
+num_epoch = 400
 batch_size = 32
 num_points = 9990
 train_size = 8000
