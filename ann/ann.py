@@ -15,8 +15,6 @@ class ANN(nn.Module):
     self.sigmoid = nn.Sigmoid()
 
   def forward(self, x):
-    x_features = x["features"]
-
-    out = self.relu(self.fc1(x_features))
+    out = self.relu(self.fc1(x))
     out = self.sigmoid(self.fc2(out))
     return out

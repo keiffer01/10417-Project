@@ -13,7 +13,7 @@ from imagecsvdataset import ImageCsvDataset
 
 
 ### Define constants
-num_epoch = 400
+num_epoch = 200
 batch_size = 32
 num_points = 9990
 train_size = 8000
@@ -26,15 +26,10 @@ net_dir = './parallel_v2_net.pth'
 loss_figure_dir = './figures/loss-' + str(num_epoch) + '-epochs.png'
 accuracy_figure_dir = './figures/accuracy-' + str(num_epoch) + '-epochs.png'
 saved_loss_and_accuracy_dir = './saved_loss_and_accuracy.npz'
-transform = transforms.Compose([
-  transforms.Grayscale(num_output_channels=1),
-  transforms.ToTensor(),
-  transforms.Normalize(0.5, 0.5)
-])
 
 
 ### Load the data
-dataset = ImageCsvDataset(csv_dir, image_dir, transform)
+dataset = ImageCsvDataset(csv_dir, image_dir)
 trainset, testset = torch.utils.data.random_split(dataset, [train_size, test_size])
 trainloader = torch.utils.data.DataLoader(trainset,
                                           batch_size=batch_size,

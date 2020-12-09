@@ -50,10 +50,6 @@ class ImageCsvDataset(Dataset):
     # Get image
     filename = self.music_features.loc[idx, "filename"]
     genre = filename.partition(".")[0]
-    img_name = os.path.join(self.image_dir,
-                            genre,
-                            filename.replace(".", "", 1).replace(".wav", ".png"))
-    image = Image.open(img_name)
 
     # Get corresponding features.
     music_features = self.music_features.drop(["filename", "label"], axis=1)
@@ -62,10 +58,5 @@ class ImageCsvDataset(Dataset):
     features = features.astype("float")
     features = torch.tensor(features, dtype=torch.float32)
 
-    # Image transformation
-    if self.transform:
-      image = self.transform(image)
-
-    sample = {"image": image, "features": features}
     genre = torch.tensor(genre2Num(genre))
-    return sample, genre
+    return features, genre
