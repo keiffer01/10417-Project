@@ -22,9 +22,7 @@ class RNN(nn.Module):
     self.sigmoid = nn.Sigmoid()
 
   def forward(self, x):
-    x_image = x["image"]
-
-    out = self.lstmpool(x_image)
+    out = self.lstmpool(x)
     out = out.view(out.size(0), -1, lstm_input)
     out, (hn, cn) = self.lstm(out)
     out = out.reshape(out.size(0), -1)

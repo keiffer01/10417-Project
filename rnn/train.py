@@ -9,19 +9,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import trange
 import rnn
-from imagecsvdataset import ImageCsvDataset
 
 
 ### Define constants
-num_epoch = 200
+num_epoch = 800
 batch_size = 32
-num_points = 9990
+num_points = 10000
 train_size = 8000
-test_size = 1990
+test_size = 2000
 lr = 0.001
 momentum = 0.9
 csv_dir = "../data/features_3_sec.csv"
-image_dir = '../data/images_segmented'
+data_dir = '../data/images_segmented'
 net_dir = './parallel_v2_net.pth'
 loss_figure_dir = './figures/loss-' + str(num_epoch) + '-epochs.png'
 accuracy_figure_dir = './figures/accuracy-' + str(num_epoch) + '-epochs.png'
@@ -34,7 +33,7 @@ transform = transforms.Compose([
 
 
 ### Load the data
-dataset = ImageCsvDataset(csv_dir, image_dir, transform)
+dataset = datasets.ImageFolder(data_dir, transform=transform)
 trainset, testset = torch.utils.data.random_split(dataset, [train_size, test_size])
 trainloader = torch.utils.data.DataLoader(trainset,
                                           batch_size=batch_size,
