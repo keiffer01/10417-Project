@@ -1,6 +1,8 @@
 data/
 .vscode/
 baseline/__pycache__/
-rnn/__pycache__/
+cnnrnn/__pycache__/
 parallel/__pycache__/
 parallel-v2/__pycache__/
+rnn/__pycache__/
+ann/__pycache__/
